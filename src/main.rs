@@ -1,9 +1,6 @@
 #![allow(non_snake_case)]
 
-/*use std::env;
-use std::cmp::Ordering;
-use std::io;
-use rand::Rng;*/
+use std::env;
 use std::io::{self, Write};
 use std::time::Instant;
 use std::fs;
@@ -168,7 +165,8 @@ fn compiler(code: Vec<char>) -> (String, Vec<i32>) {
 
 
 fn main() { 
-    let filename: &str = "code.bf";
+    let args: Vec<String> = env::args().collect();
+    let filename: &str = &args[1];
     let now = Instant::now();
 
     let code = readFile(filename);
